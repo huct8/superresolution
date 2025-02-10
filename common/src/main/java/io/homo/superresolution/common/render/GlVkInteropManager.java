@@ -72,14 +72,14 @@ public class GlVkInteropManager implements Destroyable {
         vulkanApp = VkApplication.create()
                 .addInstanceRequiredExtensions(VK_KHR_EXTERNAL_SEMAPHORE_CAPABILITIES_EXTENSION_NAME)
                 .addInstanceRequiredExtensions(VK_KHR_EXTERNAL_MEMORY_CAPABILITIES_EXTENSION_NAME)
-                .addInstanceRequiredExtensions(VK_EXT_DEBUG_UTILS_EXTENSION_NAME)
                 .addDeviceRequiredExtensions(VK_KHR_FORMAT_FEATURE_FLAGS_2_EXTENSION_NAME)
                 .addDeviceRequiredExtensions(VK_KHR_EXTERNAL_SEMAPHORE_EXTENSION_NAME)
                 .addDeviceRequiredExtensions(VK_KHR_EXTERNAL_MEMORY_EXTENSION_NAME)
                 .addDeviceRequiredExtensions(VK_KHR_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME)
                 .addDeviceRequiredExtensions(VK_KHR_EXTERNAL_SEMAPHORE_WIN32_EXTENSION_NAME)
-                .addDeviceRequiredExtensions(VK_KHR_DEDICATED_ALLOCATION_EXTENSION_NAME)
-                .init();
+                .addDeviceRequiredExtensions(VK_KHR_DEDICATED_ALLOCATION_EXTENSION_NAME);
+        if (VkApplication.ENABLE_VALIDATION) vulkanApp.addInstanceRequiredExtensions(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
+        vulkanApp.init();
     }
 
     @Override

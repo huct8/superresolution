@@ -9,6 +9,7 @@
         "tacz.RenderHelperMixin"
     ],
     "mixins": [
+        "reesessodiumoptions.TabFrameMixin"
     ],
     "injectors": {
         "defaultRequire": 1
